@@ -2,9 +2,10 @@ import { useCallback, useEffect, useState } from "react";
 import { Spinner } from "react-activity";
 import "react-activity/dist/library.css";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { getTopRatedMovies } from "../api/tmdb";
 import { __DEV__ } from "../App";
-import { AppTitle, Button, TopBarNavigator } from "../components";
+import { AppTitle, Button, Header, TopBarNavigator } from "../components";
 import { i18n } from "../components/core/LanguageLoader";
 import { MovieItem } from "../components/MovieItem";
 import { languageState } from "../reducers/store";
@@ -12,6 +13,7 @@ import { DomainError, Movie } from "../types";
 import { errorHandler } from "../utils";
 
 export function MainPage() {
+  const navigate = useNavigate();
   const { code: langCode } = useSelector(languageState);
   const [topRatedMovies, setTopRatedMovies] = useState<{
     [page: number]: Movie[];
@@ -40,24 +42,12 @@ export function MainPage() {
     }
   };
 
-  const Header = useCallback(
-    () => (
-      <div
-        className={`flex flex-row w-full my-[30px] items-baseline justify-between`}
-      >
-        <AppTitle />
-        <TopBarNavigator />
-      </div>
-    ),
-    []
-  );
-
   const MovieList = useCallback(() => {
     if (Object.keys(topRatedMovies).length === 0 || !topRatedMovies[page])
       return null;
 
     return (
-      <div className="mt-[20px] ">
+      <div className="mt-[20px]">
         <p
           className={` mb-[20px] text-3xl text-darkBlue text-center font-bold`}
         >
@@ -66,7 +56,10 @@ export function MainPage() {
         <div className="flex flex-wrap justify-center">
           {topRatedMovies[page].map((movie, index) => (
             <div key={index} className="m-[14px]">
-              <MovieItem movie={movie} />
+              <MovieItem
+                movie={movie}
+                onPress={() => navigate(`/movie/${movie.id}`)}
+              />
             </div>
           ))}
         </div>

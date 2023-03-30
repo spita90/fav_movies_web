@@ -15,6 +15,8 @@ export const TRANSLATIONS_EN = {
     search: "Search",
     movies: "Movies",
     movieInfo: "Movie Info",
+    addToFavourites: "Add to Favourites",
+    removeFromFavourites: "Remove from Favourites",
     topTMDBMovies: "Top movies according to TMDB",
     topRated: "Top Rated",
     favourites: "Favourites",

@@ -4,15 +4,21 @@ import { FaStar } from "react-icons/fa";
 
 export interface MovieItemProps {
   movie: Movie;
+  onPress?: () => void;
 }
 
-export function MovieItem({ movie }: MovieItemProps) {
+export function MovieItem({ movie, onPress }: MovieItemProps) {
   return (
-    <div className="flex flex-col w-[180px]">
+    <button
+      className="flex flex-col w-[180px]"
+      onClick={() => {
+        onPress && onPress();
+      }}
+    >
       <div className="relative">
         <div className="absolute flex flex-row justify-between p-[10px] w-full h-full rounded-xl bg-black items-end opacity-0 hover:opacity-70">
           <div className="flex flex-row items-center">
-            <FaStar color="yellow" />
+            <FaStar color="orange" />
             <p className="ml-[6px] text-white font-bold">
               {movie.vote_average.toString()}
             </p>
@@ -30,6 +36,6 @@ export function MovieItem({ movie }: MovieItemProps) {
         />
       </div>
       <p className="text-center">{movie.title}</p>
-    </div>
+    </button>
   );
 }
