@@ -16,6 +16,7 @@ export const TRANSLATIONS_IT = {
     movies: "Film",
     movieInfo: "Dettagli Film",
     topTMDBMovies: "I migliori film secondo TMDB",
+    topRated: "I più votati",
     favourites: "Preferiti",
     emptyScreenPlaceholder:
       "Nulla di speciale qui.\n🤷\nGuarda le schermate accanto!",

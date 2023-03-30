@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Page, WelcomeFragment } from "../";
+import { WelcomeFragment } from "../";
 import { config } from "../../config";
 import { userState } from "../../reducers/store";
 
@@ -56,11 +56,5 @@ export function AppLoader({ children }: { children: JSX.Element }) {
   //   );
   // }
 
-  return firstUse ? (
-    <Page>
-      <WelcomeFragment />{" "}
-    </Page>
-  ) : (
-    children
-  );
+  return firstUse ? <WelcomeFragment /> : children;
 }

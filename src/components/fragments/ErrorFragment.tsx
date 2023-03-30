@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { Text } from "..";
 import { config } from "../../config";
 import { DomainError } from "../../types";
 import { showToast } from "../../utils";
@@ -35,11 +34,11 @@ export function ErrorFragment({ error }: ErrorPageProps) {
 
   return (
     <div className="flex-1 flex-col content-stretch justify-center">
-      <Text style={`self-center p-[10px] mb-[20px]`} size={"lg"}>
+      <p className={`self-center p-[10px] mb-[20px] text-lg`}>
         {i18n.t("l.error")}
-      </Text>
+      </p>
       <div className="absolute right-6 bottom-6 w-[50%] h-[50px] justify-end items-end">
-        {config.version && <Text size={"sm"}>v{config.version}</Text>}
+        {config.version && <p className="text-sm">v{config.version}</p>}
       </div>
     </div>
   );

@@ -1,18 +1,12 @@
-import { Text } from "./";
-
 export interface AppTitleProps {
   ignoreFontFamily?: boolean;
 }
 
 export function AppTitle({ ignoreFontFamily }: AppTitleProps) {
   return (
-    <div className={`flex-row items-baseline`}>
-      <Text ignoreFontFamily={ignoreFontFamily} size="tt">
-        Fav
-      </Text>
-      <Text ignoreFontFamily={ignoreFontFamily} size="tt" bold>
-        Movies
-      </Text>
+    <div className={`flex flex-row items-baseline`}>
+      <p className="text-3xl">Fav</p>
+      <p className="text-3xl font-bold">Movies</p>
     </div>
   );
 }

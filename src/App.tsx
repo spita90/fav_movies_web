@@ -12,12 +12,6 @@ import { DomainError } from "./types";
 
 export const __DEV__ = process.env.NODE_ENV === "development";
 
-export const WEB_APP_MAX_WIDTH_PX = 600;
-export const SCREEN_AVAILABLE_WIDTH = Math.min(
-  WEB_APP_MAX_WIDTH_PX,
-  window.innerWidth
-);
-
 export const TMDB_IMAGES_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 const onError = (error: Error) => {
@@ -30,7 +24,7 @@ export function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <div>
+        <div className={`items-center`}>
           <LanguageLoader />
           <ErrorBoundary
             onError={onError}

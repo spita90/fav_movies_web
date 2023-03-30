@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
-import { Button, Text } from "../";
-import { SCREEN_AVAILABLE_WIDTH } from "../../App";
+import { Button } from "../";
 import { setFirstUse } from "../../reducers/userReducer";
 import { i18n } from "../core/LanguageLoader";
 
@@ -32,18 +31,12 @@ export function WelcomeFragment() {
   // pages
   const Page0 = useCallback(() => {
     return (
-      <div
-        className={`items-center justify-center w-[${SCREEN_AVAILABLE_WIDTH}px]`}
-      >
+      <div className={`items-center justify-center`}>
         {/* <Animated.View style={[{ transform: [{ translateX: hiSlideAnim }] }]}> */}
-        <Text textStyle={`text-7xl mb-[60px]`}>{i18n.t("l.hi")}</Text>
+        <p className={`text-7xl mb-[60px]`}>{i18n.t("l.hi")}</p>
         {/* </Animated.View> */}
-        <Text style={`mb-xl px-lg`} textStyle={`text-xl`}>
-          {i18n.t("l.welcome")}
-        </Text>
-        <Text style={`px-[10%]`} center>
-          {i18n.t("l.welcomeCaption")}
-        </Text>
+        <p className={`mb-xl px-lg text-xl`}>{i18n.t("l.welcome")}</p>
+        <p className={`px-[10%] text-center`}>{i18n.t("l.welcomeCaption")}</p>
         <img
           className={`mt-xl h-[25%] `}
           // style={[tw, { resizeMode: "contain" }]}
@@ -56,12 +49,10 @@ export function WelcomeFragment() {
 
   const Page1 = useCallback(() => {
     return (
-      <div
-        className={`items-center justify-center w-[${SCREEN_AVAILABLE_WIDTH}px]`}
-      >
-        <Text size="lg" style={`px-lg`} textStyle={`leading-10`} center>
+      <div className={`items-center justify-center`}>
+        <p className={`text-lg px-lg leading-10 text-center`}>
           {i18n.t("l.insertName")}
-        </Text>
+        </p>
       </div>
     );
   }, []);
@@ -71,13 +62,13 @@ export function WelcomeFragment() {
       <div className={`flex-row flex-1 py-md px-xl justify-between items-end`}>
         {currentPageNumber > 0 ? (
           <Button onPress={() => goPrev(currentPageNumber)}>
-            <Text>{"<-"}</Text>
+            <p>{"<-"}</p>
           </Button>
         ) : (
           <div className={`flex-1`} />
         )}
         <Button onPress={() => goNext(currentPageNumber)}>
-          <Text>{"->"}</Text>
+          <p>{"->"}</p>
         </Button>
       </div>
     ),
@@ -125,7 +116,7 @@ export function WelcomeFragment() {
 
   return (
     // <Animated.View
-    <div className={`flex-1 overflow-hidden w-[${SCREEN_AVAILABLE_WIDTH}px]`}>
+    <div className={`flex-1 overflow-hidden`}>
       <div className={`flex-row flex-8 justify-center`}>
         <Page0 />
         <Page1 />

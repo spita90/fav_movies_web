@@ -1,3 +1,4 @@
+import path from "path";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   FavouritesPage,
@@ -6,14 +7,26 @@ import {
   SettingsPage,
 } from "./pages";
 
+export const PAGES: { path: string; element: JSX.Element }[] = [
+  {
+    path: "/",
+    element: <MainPage />,
+  },
+  {
+    path: "/movie/:id",
+    element: <MovieDetailPage />,
+  },
+  { path: "/favourites", element: <FavouritesPage /> },
+  { path: "/settings", element: <SettingsPage /> },
+];
+
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/movie/:id" element={<MovieDetailPage />} />
-        <Route path="/favourites" element={<FavouritesPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
+        {PAGES.map((page, index) => (
+          <Route key={index} path={page.path} element={page.element} />
+        ))}
       </Routes>
     </BrowserRouter>
   );
