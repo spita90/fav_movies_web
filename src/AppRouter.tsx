@@ -1,4 +1,3 @@
-import path from "path";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   FavouritesPage,

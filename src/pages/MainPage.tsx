@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getTopRatedMovies } from "../api/tmdb";
 import { __DEV__ } from "../App";
-import { AppTitle, Button, Header, TopBarNavigator } from "../components";
+import { Button, Header } from "../components";
 import { i18n } from "../components/core/LanguageLoader";
 import { MovieItem } from "../components/MovieItem";
 import { languageState } from "../reducers/store";
