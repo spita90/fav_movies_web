@@ -17,9 +17,12 @@ export const TRANSLATIONS_EN = {
     movieInfo: "Movie Info",
     addToFavourites: "Add to Favourites",
     removeFromFavourites: "Remove from Favourites",
+    emptyFavouritesCaption:
+      "There's nothing here. Add some movie to your Favourites!",
     topTMDBMovies: "Top movies according to TMDB",
     topRated: "Top Rated",
     favourites: "Favourites",
+    yourFavourites: "Your Favourites",
     emptyScreenPlaceholder:
       "Nothing special here.\n🤷\nCheck out the screens beside!",
     language: "Language",

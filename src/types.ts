@@ -14,7 +14,6 @@ export class DomainError extends Error {
 }
 
 export type User = {
-  firstUse: boolean;
   favMovies: Movie[];
 };
 

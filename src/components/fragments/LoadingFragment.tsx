@@ -10,9 +10,9 @@ import animationJson from "../../animations/fav_movies.json";
 export const LoadingFragment = () => {
   const LottieAnimation = useCallback(
     () => (
-      <div className={`rounded-[40px] overflow-hidden`}>
+      <div className={`flex rounded-[40px] overflow-hidden`}>
         <Lottie
-          className={`w-[80%] rounded-lg`}
+          className={`w-[400px] rounded-lg`}
           animationData={animationJson}
           loop={false}
           autoPlay
@@ -23,10 +23,10 @@ export const LoadingFragment = () => {
   );
 
   return (
-    <div className={`h-full justify-center items-center`}>
+    <div className={`flex h-full justify-center items-center`}>
       <LottieAnimation />
       <div className={`mt-sm`}>
-        <AppTitle ignoreFontFamily />
+        <AppTitle />
       </div>
     </div>
   );

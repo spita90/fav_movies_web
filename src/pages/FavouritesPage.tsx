@@ -5,11 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "../components";
 import { i18n } from "../components/core/LanguageLoader";
 import { MovieItem } from "../components/MovieItem";
-import { languageState, userState } from "../reducers/store";
+import { userState } from "../reducers/store";
 
 export function FavouritesPage() {
   const navigate = useNavigate();
-  const { code: langCode } = useSelector(languageState);
   const { favMovies } = useSelector(userState);
 
   const MovieList = useCallback(() => {
@@ -20,7 +19,7 @@ export function FavouritesPage() {
         <p
           className={` mb-[20px] text-3xl text-darkBlue text-center font-bold`}
         >
-          {`${i18n.t("l.topTMDBMovies")}`}
+          {`${i18n.t("l.yourFavourites")}`}
         </p>
         <div className="flex flex-wrap justify-center">
           {favMovies.map((movie, index) => (
@@ -40,7 +39,13 @@ export function FavouritesPage() {
     <div className="flex flex-col items-center mx-[50px] mb-[50px]">
       <Header />
       <div className="flex flex-col items-center">
-        <MovieList />
+        {favMovies.length > 0 ? (
+          <MovieList />
+        ) : (
+          <p className="mt-[40px] font-bold">
+            {i18n.t("l.emptyFavouritesCaption")}
+          </p>
+        )}
       </div>
     </div>
   );

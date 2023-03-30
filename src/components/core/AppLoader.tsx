@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { WelcomeFragment } from "../";
+import { LoadingFragment } from "..";
 import { config } from "../../config";
-import { userState } from "../../reducers/store";
 
 /**
  * Manages App initialization before displaying it
  */
 export function AppLoader({ children }: { children: JSX.Element }) {
-  const { firstUse } = useSelector(userState);
-
   const [appInitialized, setappInitialized] = useState(false);
-  const [canRenderChildren, setCanRenderChildren] = useState(false);
 
   // const fadeOutAnim = useRef(new Animated.Value(1)).current;
 
@@ -46,15 +41,13 @@ export function AppLoader({ children }: { children: JSX.Element }) {
   //   });
   // }, [appInitialized, fontsLoaded]);
 
-  // if (!canRenderChildren) {
-  //   return (
-  //     <Animated.View
-  //       style={[tw`absolute top-0 w-full h-full`, { opacity: fadeOutAnim }]}
-  //     >
-  //       <LoadingFragment />
-  //     </Animated.View>
-  //   );
-  // }
+  if (!appInitialized) {
+    return (
+      <div className={`absolute top-0 w-full h-full`}>
+        <LoadingFragment />
+      </div>
+    );
+  }
 
-  return firstUse ? <WelcomeFragment /> : children;
+  return children;
 }

@@ -1,8 +1,4 @@
-export interface AppTitleProps {
-  ignoreFontFamily?: boolean;
-}
-
-export function AppTitle({ ignoreFontFamily }: AppTitleProps) {
+export function AppTitle() {
   return (
     <div className={`flex flex-row items-baseline`}>
       <p className="text-3xl">Fav</p>
