@@ -11,6 +11,7 @@ export function TopBarNavigator() {
   const BUTTONS: { title: string; path: string }[] = [
     { title: i18n.t("l.topRated"), path: "/" },
     { title: i18n.t("l.favourites"), path: "/favourites" },
+    { title: i18n.t("l.settings"), path: "/settings" },
   ];
 
   return (

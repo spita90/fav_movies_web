@@ -8,8 +8,6 @@ import { config } from "../../config";
 export function AppLoader({ children }: { children: JSX.Element }) {
   const [appInitialized, setappInitialized] = useState(false);
 
-  // const fadeOutAnim = useRef(new Animated.Value(1)).current;
-
   const initializeApp = async () => {
     // Eventual initialization code
     setTimeout(() => {
@@ -26,20 +24,6 @@ export function AppLoader({ children }: { children: JSX.Element }) {
 
     initializeApp();
   }, []);
-
-  // /**
-  //  * Handles the fade-out animation when loading is finished
-  //  */
-  // useEffect(() => {
-  //   if (!appInitialized || !fontsLoaded) return;
-  //   Animated.timing(fadeOutAnim, {
-  //     toValue: 0,
-  //     duration: 400,
-  //     useNativeDriver: Platform.OS !== "web",
-  //   }).start(() => {
-  //     setCanRenderChildren(true);
-  //   });
-  // }, [appInitialized, fontsLoaded]);
 
   if (!appInitialized) {
     return (

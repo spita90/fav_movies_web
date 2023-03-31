@@ -65,6 +65,7 @@ export function MainPage() {
         </div>
       </div>
     );
+    // eslint-disable-next-line
   }, [topRatedMovies, page]);
 
   const Navigation = useCallback(
@@ -99,14 +100,16 @@ export function MainPage() {
   useEffect(() => {
     if (page === 1) return;
     fetchTopRatedMovies();
+    // eslint-disable-next-line
   }, [page]);
 
   /**
-   * Fetches again top rated movies after pull-to-refresh gesture
+   * First fetch for top rated movies
    */
   useEffect(() => {
     if (!refreshing) return;
     fetchTopRatedMovies();
+    // eslint-disable-next-line
   }, [refreshing]);
 
   return (

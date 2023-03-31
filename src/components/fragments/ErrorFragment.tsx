@@ -30,6 +30,7 @@ export function ErrorFragment({ error }: ErrorPageProps) {
           : error.message;
       showToast(message);
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

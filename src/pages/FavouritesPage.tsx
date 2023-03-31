@@ -33,6 +33,7 @@ export function FavouritesPage() {
         </div>
       </div>
     );
+    // eslint-disable-next-line
   }, [favMovies]);
 
   return (
