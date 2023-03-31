@@ -117,6 +117,7 @@ export function MovieDetailPage() {
       return showToast(i18n.t("errors.cannotGetMovieDetails"));
     }
     fetchMovieDetail();
+    // eslint-disable-next-line
   }, []);
 
   return (
