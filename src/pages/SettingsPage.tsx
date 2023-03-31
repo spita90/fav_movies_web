@@ -14,8 +14,7 @@ export function SettingsPage() {
   const LanguageChanger = useCallback(
     () => (
       <Button
-        color="blue"
-        style={`mt-[50px] border-darkBlue border-[2px] px-[20px] py-[10px] rounded-full`}
+        style={`mt-[50px] border-darkBlue bg-blue border-[2px] px-[20px] py-[10px] rounded-full`}
         onPress={() => {
           const currentLanguageIndex = LANGUAGES.indexOf(i18n.locale);
           i18n.locale =
@@ -33,8 +32,7 @@ export function SettingsPage() {
     () => (
       <div className={`mt-[100px] mb-[50px]`}>
         <Button
-          style={`mt-[30px] border-[2px] border-black px-[20px] py-[10px] rounded-full`}
-          color="red"
+          style={`mt-[30px] border-[2px] border-black bg-red px-[20px] py-[10px] rounded-full`}
           onPress={() => {
             wipeUser();
             navigate("/");
